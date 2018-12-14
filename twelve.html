@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+     function wrapElements(a) {
+         var result = [], i, n;
+         for (i = 0, n = a.length; i < n; i++) {
+             result[i] = function() {
+                 return a[i];
+             }
+         }
+         return result;
+     }
+     var wrapped = wrapElements([10, 20, 30, 40, 50]);
+     var f = wrapped[0];
+     console.log(f());
+        */
+     /*
+     function wrapElements(a) {
+         var result = [];
+         for(var i = 0, n = a.length; i < n; i++) {
+             (function() {
+                 var j = i;
+                 result[j] = function() {
+                     return a[j];
+                 }
+             })();
+         }
+         return result;
+     }
+     var wrapped = wrapElements([10, 20, 30]);
+     var f = wrapped[0];
+     console.log(f());
+     */
+
+     function wrapElements(a) {
+         var result = [];
+         for(var i = 0, n = a.length; i < n; i++) {
+             (function(j) {
+                result[i] = function() {
+                    return a[j];
+                }
+             })(i);
+         }
+     }
+    </script>
+</body>
+</html>
