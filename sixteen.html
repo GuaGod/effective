@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+      function test(x) {
+          eval('var y = x');
+          return y;
+      }
+      var result = test('hello');
+      console.log(result);
+       */
+       /*
+       var y = 'global';
+       function test(x) {
+           if (x) {
+               eval("var y = 'local';");
+           }
+           return y;
+       }
+       var result1 = test(true);
+       var result2 = test(false);
+       console.log(result1);
+       console.log(result2);
+       */
+       /*
+       var y = 'global';
+       function test(src) {
+           (function() {eval(src);})();
+           return y;
+       }
+       var result = test("var y = 'local';");
+       console.log(result);
+       */
+       /*
+       var x = 'global';
+       function test() {
+           var x = 'local';
+           return eval('x');
+       }
+       console.log(test());
+       */
+       /*
+       var x = 'global';
+       function test() {
+           var x = 'local';
+           var f = eval;
+           return f('x');
+       }
+       console.log(test());
+       */
+       var x = 'global';
+       function test() {
+           var x = 'local';
+           return (0, eval)('x');
+       }
+       console.log(test());
+    </script>
+</body>
+</html>
